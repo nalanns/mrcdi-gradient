@@ -1,0 +1,27 @@
+
+ernie_TDCS_1
+============
+Gray Matter
+
+Field Percentiles
+-----------------
+Top percentiles of the field (or field magnitude for vector fields)
+|Field        |99.9%         |99.0%         |95.0%         |
+|-------------|--------------|--------------|--------------|
+|E            |2.52e-01 V/m  |1.94e-01 V/m  |1.50e-01 V/m  |
+|magnE        |2.52e-01 V/m  |1.94e-01 V/m  |1.50e-01 V/m  |
+|conductivity |2.75e-01      |2.75e-01      |2.75e-01      |
+|J            |6.92e-02 A/m² |5.32e-02 A/m² |4.12e-02 A/m² |
+|magnJ        |6.92e-02 A/m² |5.32e-02 A/m² |4.12e-02 A/m² |
+
+Field Focality
+---------------
+Mesh volume or area with a field >= X% of the 99.9th percentile
+|Field        |75.0%        |50.0%        |
+|-------------|-------------|-------------|
+|E            |8.68e+03 mm³ |1.05e+05 mm³ |
+|magnE        |8.68e+03 mm³ |1.05e+05 mm³ |
+|conductivity |7.23e+05 mm³ |7.23e+05 mm³ |
+|J            |8.68e+03 mm³ |1.05e+05 mm³ |
+|magnJ        |8.68e+03 mm³ |1.05e+05 mm³ |
+
