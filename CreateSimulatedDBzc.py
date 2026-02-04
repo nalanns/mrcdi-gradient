@@ -173,14 +173,26 @@ def main():
 
     #%% Plotting
     print("Sonuçlar çiziliyor ve kaydediliyor...")
-    fig = plt.figure(figsize=(15, 3)) # Figure nesnesini değişkene atayalım
-    for i in range(5):
-        plt.subplot(1, 5, i+1)
-        plt.imshow(Bz[:, i, :], vmin=-0.5e-9, vmax=0.5e-9, cmap="bwr")
-        plt.title(f"Slice {i}")
-        plt.axis('off')
+    fig = plt.figure(figsize=(16, 3)) # Figure nesnesini değişkene atayalım
     
-    plt.tight_layout()
+    # Store mappable for colorbar
+    im = None
+    
+    # Scale to nT for plotting
+    Bz_plot = Bz * 1e9
+
+    for i in range(5):
+        ax = plt.subplot(1, 5, i+1)
+        # Plot in nT with range -0.5 to 0.5
+        im = ax.imshow(Bz_plot[:, i, :], vmin=-0.5, vmax=0.5, cmap="bwr")
+        ax.set_title(f"Slice {i}")
+        ax.axis('off')
+    
+    # Add colorbar shared across axes
+    cbar = fig.colorbar(im, ax=fig.axes, shrink=0.8, location='right', pad=0.02)
+    cbar.set_label('Magnetic Flux Density (nT)')
+    
+    # plt.tight_layout() # Removing tight_layout as it might interfere with colorbar placement in some mpl versions
     
     # Kaydetme işlemini SHOW'dan ÖNCE yapmalısın
     plot_filename = os.path.join(base_project_path, 'Bz_Slices_Output.png')
